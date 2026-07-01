@@ -3,50 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ref no Lambe</title>
+    <title>Ref no Lambe!</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png"  href="assets/logo.png">
 </head>
 <body>
-    <header class="cabecalho">
-        <h1>Ref no Lambe</h1>
-        <p>Deslize para o lado para conhecer as mentes transformadoras.</p>
-    </header>
-    
+
+    <!-- 1. CABEÇALHO HERO -->
+    <header class="hero-cabecalho">
+    <div class="cabecalho-container">
+        <div class="titulo-container">
+            <span class="subtitulo-hero">CONHEÇA O</span>
+            <h1>Ref no<br>Lambe!</h1>
+        </div>
+        <img src="assets/logo.png" alt="Logo Ref no Lambe" class="logo-topo">
+    </div>
+</header>
+
+    <!-- 2. CAIXA DE INSTRUÇÃO -->
+    <div class="instrucao-destaque">
+        <p>Deslize para o lado para explorar &rarr;</p>
+    </div>
+
+    <!-- 3. CARROSSEL COM FLUTUAÇÃO -->
     <main class="container">
         <section class="carrossel-swipe">
-
-            <!-- Modelo Card -->
-             <article class="cartao">
+            
+            <article class="cartao">
+                <img src="assets/bell-hooks.jpeg" alt="Foto de bell hooks" class="foto-cartao">
                 <div class="cartao-conteudo">
                     <h2>bell hooks</h2>
-                    <p>Patrono da Educação Brasileira</p>
+                    <p>Patrono da Educação Brasileira.</p>
                     <a href="bell-hooks.html" class="botao">Explorar</a>
                 </div>
-             </article>
+            </article>
 
-              <article class="cartao">
+            <article class="cartao">
+                <img src="assets/maria-carolina.jpeg" alt="Foto de Maria Carolina de Jesus" class="foto-cartao">
                 <div class="cartao-conteudo">
                     <h2>Maria Carolina de Jesus</h2>
-                    <p>Patrono da Educação Brasileira</p>
+                    <p>Educação como prática da liberdade.</p>
                     <a href="maria-carolina-de-jesus.html" class="botao">Explorar</a>
                 </div>
-             </article>
+            </article>
 
-              <article class="cartao">
+            <article class="cartao">
+                <img src="assets/krupskaya.jpeg" alt="Foto de Nadejda Krupskaya" class="foto-cartao">
                 <div class="cartao-conteudo">
                     <h2>Nadejda Krupskaya</h2>
-                    <p>Patrono da Educação Brasileira</p>
+                    <p>Foco na autonomia infantil.</p>
                     <a href="nadejda-krupskaya.html" class="botao">Explorar</a>
                 </div>
-             </article>
+            </article>
+
         </section>
 
         <div class="controles-navegacao">
-            <button id="btn-anterior" class="btn-nav">&larr; Anterior</button>
-            <button id="btn-proximo" class="btn-nav">&rarr; Próximo</button>
+            <button id="btn-anterior" class="btn-nav">&larr; Voltar</button>
+            <button id="btn-proximo" class="btn-nav">Avançar &rarr;</button>
         </div>
-
     </main>
+
+    <!-- 4. SEÇÃO SOBRE O PROJETO -->
+    <section class="sobre-nos">
+        <h2>O Projeto</h2>
+        <p>Esta iniciativa busca conectar a juventude aos pensadores que moldaram a aprendizagem. Através de lambes urbanos e tecnologia de acesso rápido, resgatamos essas biografias de forma acessível e interativa para todos.</p>
+    </section>
+
     <script src="js/script.js"></script>
 </body>
 </html>
