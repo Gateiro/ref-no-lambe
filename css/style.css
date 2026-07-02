@@ -1,4 +1,4 @@
-/* --- 1. VARIÁVEIS DA NOSSA PALETA DE CORES MONOCROMÁTICA ---*/
+/* --- 1. VARIÁVEIS DA PALETA DE CORES MONOCROMÁTICA ---*/
 :root {
     --cor-fundo-geral: #ffffff; 
     --cor-texto-escuro: #000000; 
@@ -7,8 +7,7 @@
     --cor-bloco-claro: #c8c8c8;    
 }
 
-/* --- 2. CONFIGURAÇÕES GERAIS --- 
-   Zera as margens padrão do navegador e define a fonte marcante do projeto. */
+/* --- 2. CONFIGURAÇÕES GERAIS --- */
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +22,6 @@ body {
 }
 
 /* --- 3. CABEÇALHO HERO --- */
-   
 .hero-cabecalho {
     text-align: center;
     padding: 20px;
@@ -46,7 +44,7 @@ body {
     line-height: 0.9; 
     letter-spacing: -2px;
     text-transform: lowercase; 
-    color: #ffffff; 
+    color: var(--cor-fundo-geral); 
 }
 
 /* --- 4. CAIXA DE INSTRUÇÃO --- */
@@ -62,7 +60,7 @@ body {
     font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 1rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave preta */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .cabecalho-container {
@@ -77,7 +75,7 @@ body {
 .logo-topo {
     width: 100px;
     height: auto;
-    border-left: 2px solid #ffffff;
+    border-left: 2px solid var(--cor-fundo-geral);
     padding-left: 15px;
 }
 
@@ -86,12 +84,19 @@ body {
     height: auto;
 }
 
+.link-logo {
+    text-decoration: none;
+}
+
 .titulo-container {
     text-align: left;
 }
 
 /* --- 5. O CARROSSEL E OS CARTÕES --- */
 .carrossel-swipe {
+    background-image: url('../assets/background-krups.png');
+    background-size: cover;
+    background-position: center;
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -110,11 +115,11 @@ body {
     border-radius: 20px;
     scroll-snap-align: center;
     padding: 40px 20px;
-    text-align: center;
     border: 3px solid var(--cor-elemento-medio);
     transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
     opacity: 0.5;
     transform: scale(0.9);
+    text-align: center;
 }
 
 .foto-cartao {
@@ -146,13 +151,16 @@ body {
     margin-bottom: 10px;
     line-height: 1;
     letter-spacing: -1px;
-    color: #ffffff;
+    color: var(--cor-fundo-geral);
+    text-align: center;
 }
 
 .cartao p {
     font-family: Arial, sans-serif;
     margin-bottom: 25px;
     color: var(--cor-bloco-claro);
+    text-align: left;
+    font-size: 0.9rem;
 }
 
 .botao {
@@ -165,11 +173,12 @@ body {
     font-family: Arial, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .botao:hover {
     background-color: var(--cor-texto-escuro);
+    color: var(--cor-fundo-geral);
 }
 
 /* --- 7. SEÇÃO SOBRE O PROJETO --- */
@@ -177,13 +186,6 @@ body {
     background-color: var(--cor-bloco-escuro);
     color: var(--cor-fundo-geral);
     padding: 35px 25px;
-    text-align: center;
-}
-
-.sobre-nos h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: var(--cor-fundo-geral);
 }
 
 .sobre-nos p {
@@ -192,11 +194,11 @@ body {
     font-size: 0.9rem;
     max-width: 600px;
     margin: 0 auto;
-    color: var(--cor-bloco-claro)
+    color: var(--cor-bloco-claro);
+    text-align: justify;
 }
 
-/* -- Config Botton --*/
-.botton {
+.bottom {
     background-color: var(--cor-texto-escuro);
     color: var(--cor-fundo-geral);
     padding: 35px 25px;
@@ -227,3 +229,291 @@ body {
     .controles-navegacao { display: flex; }
     .cartao { flex: 0 0 40vw; }
 }
+
+/*-- Extra: Páginas complementares --*/
+.container-leitura {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: transparent;
+    padding: 0;
+}
+
+.foto-destaque {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 1;
+    border: none;
+    border-bottom: 3px solid var(--cor-bloco-escuro);
+    display: block;
+}
+
+.conteudo-texto {
+    position: relative;
+    z-index: 2;
+    background-color: var(--cor-fundo-geral);
+    padding: 40px 25px;
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.15);
+    margin-top: -10px;
+}
+
+/* --- 9. OTIMIZAÇÃO PARA A VERSÃO WEB (DESKTOP) --- */
+@media (min-width: 1024px) {
+    .carrossel-swipe {
+        justify-content: center;
+        overflow-x: visible;
+        padding: 60px 20px;
+    }
+
+    .cartao {
+        flex: 0 1 320px;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .cartao.ativo {
+        animation: none;
+    }
+
+    .cartao:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 30px 45px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .controles-navegacao {
+        display: none !important;
+    }
+
+    .container-leitura {
+        display: flex;
+        max-width: 1100px;
+        margin: 40px auto;
+        gap: 60px;
+        padding: 0 20px;
+        align-items: flex-start;
+    }
+
+    .foto-destaque {
+        position: sticky;
+        top: 40px;
+        width: 45%;
+        height: 550px;
+        border-radius: 20px;
+        border: 3px solid var(--cor-bloco-escuro);
+    }
+
+    .conteudo-texto {
+        width: 55%;
+        margin-top: 0;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .instrucao-destaque {
+        display: none;
+    }
+
+    .bottom {
+        background-color: var(--cor-bloco-escuro);
+    }
+}
+
+/* --- 10. ESTILIZAÇÃO INTERNA DA BIOGRAFIA --- */
+
+.conteudo-texto p {
+    font-family: Arial, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: var(--cor-texto-escuro);
+}
+
+.conteudo-texto h2 {
+    font-size: 2rem;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin: 45px 0 20px 0;
+    color: var(--cor-texto-escuro);
+    border-bottom: 2px solid var(--cor-bloco-escuro);
+    padding-bottom: 5px;
+}
+
+.conteudo-texto h3 {
+    font-size: 1.35rem;
+    letter-spacing: -0.5px;
+    margin: 30px 0 15px 0;
+    color: var(--cor-bloco-escuro);
+}
+.conteudo-texto em {
+    font-style: normal;
+    font-weight: bold;
+    color: var(--cor-elemento-medio);
+}
+
+.bloco-citacao {
+    margin: 20px 0 35px 0;
+    padding-left: 20px;
+    border-left: 4px solid var(--cor-texto-escuro);
+}
+
+.bloco-citacao blockquote {
+    font-family: 'Arial Black', Impact, sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+    color: var(--cor-texto-escuro);
+}
+
+.bloco-citacao cite {
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    text-transform: lowercase;
+    color: var(--cor-elemento-medio);
+}
+
+.dados-biograficos {
+    border: 2px solid var(--cor-bloco-claro);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+}
+
+.dados-biograficos p {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.dados-biograficos p:last-child {
+    margin-bottom: 0;
+}
+
+.dados-biograficos strong {
+    color: var(--cor-bloco-escuro);
+}
+
+.lista-pedagogia, .lista-livros {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.lista-pedagogia li, .lista-livros li {
+    font-family: Arial, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    position: relative;
+    padding-left: 20px;
+    color: var(--cor-texto-escuro);
+}
+
+.lista-pedagogia li::before, .lista-livros li::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    color: var(--cor-elemento-medio);
+    font-size: 0.8rem;
+    top: 1px;
+}
+
+.lista-livros cite {
+    font-style: italic;
+    font-weight: bold;
+    color: var(--cor-texto-escuro);
+}
+
+/* --- 11. SEÇÃO DE MATERIAIS EXTRAS --- */
+
+.materiais-extras {
+    background-color: var(--cor-bloco-escuro); 
+    padding: 40px 25px;
+    border-radius: 12px;
+    margin-top: 50px;
+}
+
+.materiais-extras h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: var(--cor-bloco-claro);
+    border-bottom: 2px solid var(--cor-elemento-medio);
+    padding-bottom: 10px;
+}
+
+.categoria-extra h3 {
+    font-size: 1.1rem;
+    color: var(--cor-fundo-geral);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lista-links {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 35px;
+}
+
+.lista-links li {
+    margin-bottom: 15px;
+}
+
+.lista-links a {
+    color: var(--cor-bloco-claro);
+    text-decoration: none; 
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    display: inline-block; 
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+.lista-links a:hover {
+    color: var(--cor-fundo-geral); 
+    transform: translateX(8px); 
+}
+
+/* --- 12. BOTÃO VOLTAR AO TOPO INTELIGENTE --- */
+
+.btn-topo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-family: 'Arial Black', Impact, sans-serif;
+    font-size: 1.5rem;
+    background-color: var(--cor-texto-escuro);
+    color: var(--cor-fundo-geral);
+    border: 2px solid var(--cor-bloco-escuro);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.4s ease, visibility 0.4s ease, background-color 0.3s, transform 0.3s;
+}
+
+.btn-topo.visivel {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-topo:hover {
+    background-color: var(--cor-bloco-escuro);
+    transform: translateY(-5px);
+}
+
