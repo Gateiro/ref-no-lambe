@@ -1,13 +1,14 @@
-/* --- 1. VARIÁVEIS DA NOSSA PALETA DE CORES --- */
-
+/* --- 1. VARIÁVEIS DA NOSSA PALETA DE CORES MONOCROMÁTICA ---*/
 :root {
-    --verde-fundo: #E2F6E3;    
-    --verde-claro: #A8D08D;    
-    --verde-medio: #4C8B3D;      
-    --verde-escuro: #2A4B2A;     
+    --cor-fundo-geral: #ffffff; 
+    --cor-texto-escuro: #000000; 
+    --cor-bloco-escuro: #424242;  
+    --cor-elemento-medio: #808080;
+    --cor-bloco-claro: #c8c8c8;    
 }
 
-/* --- 2. CONFIGURAÇÕES GERAIS --- */
+/* --- 2. CONFIGURAÇÕES GERAIS --- 
+   Zera as margens padrão do navegador e define a fonte marcante do projeto. */
 * {
     margin: 0;
     padding: 0;
@@ -16,27 +17,27 @@
 }
 
 body {
-    background-color: var(--verde-fundo); 
-    color: var(--verde-escuro);           
+    background-color: var(--cor-fundo-geral); 
+    color: var(--cor-texto-escuro);           
     overflow-x: hidden;
 }
 
 /* --- 3. CABEÇALHO HERO --- */
+   
 .hero-cabecalho {
     text-align: center;
-    padding: 40px;
-    background-color: var(--verde-escuro);
+    padding: 20px;
+    background-color: var(--cor-texto-escuro);
 }
 
 .subtitulo-hero {
     display: block;
     font-size: 1rem;
     letter-spacing: 4px;
-    color: var(--verde-fundo);
+    color: var(--cor-bloco-claro); 
     text-transform: uppercase;
     font-family: Arial, sans-serif;
     font-weight: bold;
-    margin-bottom: -10px; 
 }
 
 .hero-cabecalho h1 {
@@ -45,13 +46,13 @@ body {
     line-height: 0.9; 
     letter-spacing: -2px;
     text-transform: lowercase; 
-    color: white;
+    color: #ffffff; 
 }
 
-/* --- 4. CAIXA DE INSTRUÇÃO (Estilo pílula base do cartaz) --- */
+/* --- 4. CAIXA DE INSTRUÇÃO --- */
 .instrucao-destaque {
-    background-color: var(--verde-claro);
-    color: var(--verde-escuro);
+    background-color: var(--cor-bloco-claro);
+    color: var(--cor-texto-escuro);
     text-align: center;
     padding: 15px 25px;
     margin: 20px auto 30px;
@@ -61,7 +62,7 @@ body {
     font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 1rem;
-    box-shadow: 0 5px 15px rgba(42, 75, 42, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave preta */
 }
 
 .cabecalho-container {
@@ -70,13 +71,19 @@ body {
     justify-content: center;
     gap: 15px; 
     padding: 20px;
+    width: 100%;
 }
 
 .logo-topo {
     width: 100px;
     height: auto;
-    border-left: 2px solid white;
+    border-left: 2px solid #ffffff;
     padding-left: 15px;
+}
+
+.logo-base {
+    width: 100px;
+    height: auto;
 }
 
 .titulo-container {
@@ -89,7 +96,7 @@ body {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 30px;
-    padding: 30px 20px 60px;
+    padding: 45px 20px;
     scrollbar-width: none;
 }
 
@@ -99,13 +106,12 @@ body {
 
 .cartao {
     flex: 0 0 75vw;
-    background-color: var(--verde-escuro);
+    background-color: var(--cor-texto-escuro);
     border-radius: 20px;
     scroll-snap-align: center;
     padding: 40px 20px;
     text-align: center;
-    border: 3px solid var(--verde-medio);
-    
+    border: 3px solid var(--cor-elemento-medio);
     transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
     opacity: 0.5;
     transform: scale(0.9);
@@ -117,13 +123,12 @@ body {
     object-fit: cover;     
     object-position: top;  
     border-radius: 50%;    
-    border: 4px solid var(--verde-fundo); 
+    border: 4px solid var(--cor-fundo-geral);
     margin: 0 auto 20px auto; 
     display: block;
 }
 
 /* --- 6. ANIMAÇÃO DE FLUTUAÇÃO DO CARTÃO ATIVO --- */
-
 @keyframes flutuacao {
     0% { transform: scale(1.05) translateY(0px); }
     50% { transform: scale(1.05) translateY(-15px); } 
@@ -132,9 +137,7 @@ body {
 
 .cartao.ativo {
     opacity: 1;
-    box-shadow: 0 25px 30px rgba(42, 75, 42, 0.2);
-    
-    /* Chama a animação infinita de 3 segundos */
+    box-shadow: 0 25px 30px rgba(0, 0, 0, 0.25);
     animation: flutuacao 3s ease-in-out infinite;
 }
 
@@ -143,19 +146,19 @@ body {
     margin-bottom: 10px;
     line-height: 1;
     letter-spacing: -1px;
-    color: white;
+    color: #ffffff;
 }
 
 .cartao p {
     font-family: Arial, sans-serif;
     margin-bottom: 25px;
-    color: var(--verde-fundo);
+    color: var(--cor-bloco-claro);
 }
 
 .botao {
     display: inline-block;
-    background-color: var(--verde-medio);
-    color: #ffffff;
+    background-color: var(--cor-fundo-geral);
+    color: var(--cor-texto-escuro);
     text-decoration: none;
     padding: 12px 30px;
     border-radius: 50px;
@@ -166,29 +169,38 @@ body {
 }
 
 .botao:hover {
-    background-color: var(--verde-escuro);
+    background-color: var(--cor-texto-escuro);
 }
 
 /* --- 7. SEÇÃO SOBRE O PROJETO --- */
 .sobre-nos {
-    background-color: var(--verde-escuro);
-    color: var(--verde-fundo);
-    padding: 60px 25px;
+    background-color: var(--cor-bloco-escuro);
+    color: var(--cor-fundo-geral);
+    padding: 35px 25px;
     text-align: center;
 }
 
 .sobre-nos h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: var(--verde-claro);
+    color: var(--cor-fundo-geral);
 }
 
 .sobre-nos p {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     max-width: 600px;
     margin: 0 auto;
+    color: var(--cor-bloco-claro)
+}
+
+/* -- Config Botton --*/
+.botton {
+    background-color: var(--cor-texto-escuro);
+    color: var(--cor-fundo-geral);
+    padding: 35px 25px;
+    text-align: center;
 }
 
 /* --- 8. CONTROLES DE NAVEGAÇÃO DESKTOP --- */
@@ -201,7 +213,7 @@ body {
 }
 
 .btn-nav {
-    background-color: var(--verde-medio);
+    background-color: var(--cor-elemento-medio);
     color: white;
     border: none;
     padding: 12px 25px;
