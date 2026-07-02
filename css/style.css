@@ -167,7 +167,7 @@ body {
 
 /* --- 7. SEÇÃO SOBRE O PROJETO --- */
 .sobre-nos {
-    background-color: var(--cor-bloco-claro);
+    background-color: var(--cor-fundo-geral);
     padding: 35px 25px;
 }
 
