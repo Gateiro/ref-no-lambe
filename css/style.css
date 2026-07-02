@@ -492,7 +492,6 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    font-family: 'Arial Black', Impact, sans-serif;
     font-size: 1.5rem;
     background-color: var(--cor-texto-escuro);
     color: var(--cor-fundo-geral);
@@ -512,8 +511,4 @@ body {
     visibility: visible;
 }
 
-.btn-topo:hover {
-    background-color: var(--cor-bloco-escuro);
-    transform: translateY(-5px);
-}
 
